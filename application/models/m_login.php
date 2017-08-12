@@ -47,8 +47,16 @@ class m_login extends CI_Model
     </div>");
 			redirect("login");
 		}
-		
+
 	}
+
+function cekNIS(){
+
+
+$query = $this->db->query("SELECT * FROM t_d_siswa");
+
+}
+
 
 }
 ?>

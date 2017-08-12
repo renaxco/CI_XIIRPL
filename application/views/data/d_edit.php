@@ -234,9 +234,9 @@
   
     </div>
     <!-- /#wrapper -->
-  <div id="dialog" style="display: none">
-    <input id="pac-input" class="form-control" type="text" placeholder="Cari Lokasi Rumah Anda ....">
-      <hr>
-        <div id="dvMap" style="height: 450px; width: 600px;">
+      
+    <div id="dialog" style="display: none" class="form-group">
+        <div id="dvMap" style="height: 450px; width: 600px;" class="form-control">
         </div>
     </div>
+
