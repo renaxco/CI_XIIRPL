@@ -26,7 +26,7 @@ class login extends CI_Controller
 		$this->load->view('v_login');
 
 		if($this->input->post('Register')){
-			echo "berhasil";
+			$this->m_login->cekNIS();
 		}
 
 

@@ -32,6 +32,12 @@
                     echo "<hr>";
                     echo "</div>";
                   }
+                   if ($this->session->flashdata('berhasil')) {
+                    echo "<div class='form-group'>";
+                    echo $this->session->flashdata('berhasil');
+                    echo "<hr>";
+                    echo "</div>";
+                  }
                 ?>
               
 
@@ -110,14 +116,16 @@
                 <h4 class="modal-title" id="exampleModalLabel">Register</h4>
               </div>
               <div class="modal-body">
-                <form role="form" method="POST" action="<?php echo site_url('login'); ?>">
+
+
+                <form role="form" enctype="multipart/form-data" method="POST" action="<?php echo site_url('login'); ?>">
                   <div class="form-group">
                     <label for="recipient-name" class="control-label">NIS</label>
-                    <input type="text" class="form-control" id="RegNIS">
+                    <input type="text" class="form-control" id="RegNIS" name="RegNIS" required>
                   </div>
                   <div class="form-group">
                     <label for="message-text" class="control-label">Photo</label>
-                    <input type="file" name="RegFoto">
+                    <input type="file" name="RegFoto" id="RegFoto" required>
                   </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
