@@ -10,6 +10,7 @@ class login extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('m_login');
+		
 	}
 
 	function index(){
@@ -23,7 +24,14 @@ class login extends CI_Controller
 		}
 
 		$this->load->view('v_login');
+
+		if($this->input->post('Register')){
+			$this->m_login->cekNIS();
+		}
+
+
 	}
+
 }
 
 ?>

@@ -16,7 +16,7 @@ class home extends CI_Controller
     </div>");
 		redirect('login');
 		}
-		echo "a";
+
 		$this->load->model('m_insert','ins');
 	}
 

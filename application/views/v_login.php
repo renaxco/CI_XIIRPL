@@ -32,6 +32,12 @@
                     echo "<hr>";
                     echo "</div>";
                   }
+                   if ($this->session->flashdata('berhasil')) {
+                    echo "<div class='form-group'>";
+                    echo $this->session->flashdata('berhasil');
+                    echo "<hr>";
+                    echo "</div>";
+                  }
                 ?>
               
 
@@ -50,6 +56,7 @@
                 </div>
               </div>
 
+              
               <div id="content1">
               <form role="form" method="POST" action="<?php echo site_url('login'); ?>">
             <fieldset>
@@ -60,6 +67,7 @@
                 <input class="form-control" placeholder="PASSWORD" name="tglLahir" type="password" value="">
               </div>
                <input class="btn btn-primary" name="logSiswa" type="submit" value="Login">
+               <input type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal" value="Register" id="registerModal">
                </fieldset>
           </form>
               </div>
@@ -80,6 +88,57 @@
               </div>
 
 
+<!-- START -->
+
+<div class="modal fade" tabindex="-1" role="dialog" id="info">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title">Pemberitahuan</h4>
+                    </div>
+                    <div class="modal-body">
+                      <p>Info&hellip;</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-primary" data-dismiss="modal" id="infoOk">Ok</button>
+                    </div>
+                  </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+              </div><!-- /.modal -->
+
+        
+        
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+
+                <h4 class="modal-title" id="exampleModalLabel">Register</h4>
+              </div>
+              <div class="modal-body">
+
+
+                <form role="form" enctype="multipart/form-data" method="POST" action="<?php echo site_url('login'); ?>">
+                  <div class="form-group">
+                    <label for="recipient-name" class="control-label">NIS</label>
+                    <input type="text" class="form-control" id="RegNIS" name="RegNIS" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="message-text" class="control-label">Photo</label>
+                    <input type="file" name="RegFoto" id="RegFoto" required>
+                  </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <input type="submit" class="btn btn-primary" id="Register" name="Register" value="Register!">
+              </div>
+                </form>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+
+<!-- END -->
              <div class="form-group" id="loginSiswa">
                 <center><a href="#" class="btn btn-primary" id="lsiswa">Login Siswa</a></center>
              </div>
@@ -122,15 +181,25 @@
    
    $(document).ready(function(){
 
-    $('#content1').hide(250);
-    $('#content2').hide(250);
-    $('#kembaliCt').hide(250);
-    $('#text1').hide(250);
-    $('#text2').hide(250);
+    $('#content1').hide();
+    $('#content2').hide();
+    $('#kembaliCt').hide();
+    $('#text1').hide();
+    $('#text2').hide();
 
     $(function(){
       $('#lsiswa').click(function(){
+          //$('#lguru').hide(500);
+          $('#info').modal('show');
+          //$('#content1').show(1000);
+          //$('#lsiswa').hide(500);
+          //$('#kembaliCt').show(500);
+          //$('#text1').slideDown(250);
+      });
+
+      $('#infoOk').click(function(){
           $('#lguru').hide(500);
+         // $('#info').modal('show');
           $('#content1').show(1000);
           $('#lsiswa').hide(500);
           $('#kembaliCt').show(500);
@@ -159,6 +228,21 @@
    
    });
 
+   //$('#info').modal('show');
+// START
+
+$('#registerModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  // var recipient = button.data('whatever') // Extract info from data-* attributes
+  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+  // var modal = $(this)
+  // modal.find('.modal-title').text('New message to ' + recipient)
+//  modal.find('.modal-body input').val(recipient)
+})
+
+//END
+  
   </script> 
 </body>
 
